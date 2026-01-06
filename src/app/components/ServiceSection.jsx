@@ -85,9 +85,9 @@ export default function ServicesSection() {
                   className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 {/* Service Name Badge */}
-                <div className="absolute bottom-8 left-8 z-20 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl transform group-hover:translate-x-2 transition-transform duration-300">
+                {/* <div className="absolute bottom-8 left-8 z-20 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl transform group-hover:translate-x-2 transition-transform duration-300">
                   <h3 className="text-xl font-bold text-slate-900">{service.name}</h3>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
