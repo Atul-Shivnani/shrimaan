@@ -1,60 +1,97 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 
 const services = [
   {
+    id: 1,
     name: "Corporate Uniform",
-    image: "/images/corporate-uniform.jpg",
+    mainImage: "/1. Corporate Uniform.jpeg",
+    descriptionImage: "/1a. Corporate Uniform.PNG",
   },
   {
+    id: 2,
     name: "T-Shirt",
-    image: "/images/tshirt.jpg",
+    mainImage: "/2. Tshirts.png",
+    descriptionImage: "/2a. Tshirts.PNG",
   },
   {
-    name: "Suits & Blazers Fabrics",
-    image: "/images/suits-blazers.jpg",
-  },
-  {
+    id: 3,
     name: "Boiler Suits",
-    image: "/images/boiler-suit.jpg",
+    mainImage: "/3. Boiler suit.jpeg",
+    descriptionImage: "/3a. Boiler Suits.PNG",
   },
   {
-    name: "Hospital Uniforms",
-    image: "/images/hospital-uniform.jpg",
+    id: 4,
+    name: "Suits & Blazers",
+    mainImage: "/4. Suit.png",
+    descriptionImage: "/4a. Blazers and Waistcoats.PNG",
+  },
+  {
+    id: 5,
+    name: "Safety Uniform",
+    mainImage: "/5. Safety Uniform.png",
+    descriptionImage: "/5a. Safety Uniform.PNG",
+  },
+  {
+    id: 6,
+    name: "Bed and Bath",
+    mainImage: "/6. Bed and bath.png",
+    descriptionImage: "/6a. Bed and bath.PNG",
   },
 ];
 
 export default function ServicesSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src={services[activeIndex].image}
-        alt={services[activeIndex].name}
-        fill
-        priority
-        className="object-cover transition-all duration-700 ease-in-out"
-      />
+    <section id="services" className="w-full py-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-slate-700 to-slate-900 mb-6">
+            Products & Services
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover our comprehensive range of premium uniform solutions tailored to your industry needs
+          </p>
+        </div>
 
-      {/* Overlay for dark effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-40" />
+        {/* Services Grid */}
+        <div className="space-y-0">
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className={`group relative flex flex-col ${
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+              } w-full overflow-hidden transition-all duration-500 hover:shadow-2xl`}
+            >
+              {/* Main Service Image */}
+              <div className="w-full lg:w-1/2 relative h-[450px] lg:h-[600px] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/10 to-transparent z-10 group-hover:from-slate-900/5 transition-all duration-500"></div>
+                <Image
+                  src={service.mainImage}
+                  alt={service.name}
+                  fill
+                  className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              </div>
 
-      {/* Services List */}
-      <div className="absolute inset-0 flex flex-col justify-center items-start px-10 text-white space-y-5">
-        {services.map((service, index) => (
-          <button
-            key={service.name}
-            onMouseEnter={() => setActiveIndex(index)}
-            className={`text-3xl font-semibold transition-all duration-300 ${
-              index === activeIndex ? "text-sky-300" : "text-white"
-            }`}
-          >
-            {service.name}
-          </button>
-        ))}
+              {/* Description Image */}
+              <div className="w-full lg:w-1/2 relative h-[450px] lg:h-[600px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tl from-sky-900/20 to-transparent z-10"></div>
+                <Image
+                  src={service.descriptionImage}
+                  alt={`${service.name} description`}
+                  fill
+                  className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {/* Service Name Badge */}
+                <div className="absolute bottom-8 left-8 z-20 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl transform group-hover:translate-x-2 transition-transform duration-300">
+                  <h3 className="text-xl font-bold text-slate-900">{service.name}</h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

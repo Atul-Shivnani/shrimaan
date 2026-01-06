@@ -1,39 +1,80 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
-      className="
-        fixed top-0 left-0 w-full z-50
-        bg-suit-700/80 backdrop-blur-sm 
-        text-sky-100 border-b border-suit-800
-      "
+      className={`
+        fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200"
+          : "bg-gradient-to-r from-slate-900/90 to-slate-800/90 backdrop-blur-sm border-b border-white/10"
+        }
+      `}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-        
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center group">
           <img
             src="/logo.png"
             alt="Company Logo - Corporate Uniform Manufacturer"
-            className="h-10 w-auto"
+            className="h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
           />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block" aria-label="Main navigation">
           <ul className="flex items-center gap-8">
-            <li><Link href="#home" className="hover:text-sky-300 transition">Home</Link></li>
-            <li><Link href="#about" className="hover:text-sky-300 transition">About</Link></li>
-            <li><Link href="#services" className="hover:text-sky-300 transition">Services</Link></li>
+            <li>
+              <Link
+                href="#home"
+                className={`font-semibold text-lg transition-all duration-300 relative group ${
+                  scrolled ? "text-slate-800 hover:text-sky-600" : "text-white hover:text-sky-300"
+                }`}
+              >
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#services"
+                className={`font-semibold text-lg transition-all duration-300 relative group ${
+                  scrolled ? "text-slate-800 hover:text-sky-600" : "text-white hover:text-sky-300"
+                }`}
+              >
+                Services
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#about"
+                className={`font-semibold text-lg transition-all duration-300 relative group ${
+                  scrolled ? "text-slate-800 hover:text-sky-600" : "text-white hover:text-sky-300"
+                }`}
+              >
+                About
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            </li>
             <li>
               <Link
                 href="#contact"
-                className="bg-suit-800 rounded-full px-4 py-2 text-sky-100 hover:bg-suit-700 transition"
+                className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full px-6 py-3 font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Contact Us
               </Link>
@@ -43,18 +84,20 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden flex items-center text-sky-100 hover:text-sky-300 transition"
+          className={`md:hidden flex items-center transition-colors duration-300 ${
+            scrolled ? "text-slate-800" : "text-white"
+          }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              <path strokeLinecap="round" strokeLinejoin="round"
                 d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              <path strokeLinecap="round" strokeLinejoin="round"
                 d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
@@ -63,17 +106,44 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-suit-900/90 backdrop-blur-sm border-t border-suit-800 transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-96" : "max-h-0"}`}
+        className={`md:hidden bg-white/98 backdrop-blur-lg border-t border-gray-200 shadow-2xl transition-all duration-300 overflow-hidden ${
+          menuOpen ? "max-h-96" : "max-h-0"
+        }`}
       >
         <nav aria-label="Mobile navigation">
-          <ul className="flex flex-col items-center gap-4 py-4">
-            <li><Link href="/" className="hover:text-sky-300 transition">Home</Link></li>
-            <li><Link href="/about" className="hover:text-sky-300 transition">About</Link></li>
-            <li><Link href="/services" className="hover:text-sky-300 transition">Services</Link></li>
-            <li>
+          <ul className="flex flex-col items-center gap-1 py-6">
+            <li className="w-full">
               <Link
-                href="/contact"
-                className="bg-suit-800 rounded-full px-4 py-2 text-sky-100 hover:bg-suit-700 transition"
+                href="#home"
+                className="block text-center py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-lg transition-all duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="w-full">
+              <Link
+                href="#services"
+                className="block text-center py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-lg transition-all duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                Services
+              </Link>
+            </li>
+            <li className="w-full">
+              <Link
+                href="#about"
+                className="block text-center py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-lg transition-all duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                About
+              </Link>
+            </li>
+            <li className="w-full px-6 mt-2">
+              <Link
+                href="#contact"
+                className="block text-center bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full px-6 py-3 font-bold text-lg transition-all duration-300 shadow-lg"
+                onClick={() => setMenuOpen(false)}
               >
                 Contact Us
               </Link>

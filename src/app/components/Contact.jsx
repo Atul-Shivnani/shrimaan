@@ -2,91 +2,130 @@
 
 export default function ContactSection() {
   return (
-    <section className="w-full bg-sky-50 py-20 px-5 md:px-20" name="contact">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-        
-        {/* Left: Contact Info */}
-        <div>
-          <h2 className="text-4xl font-bold text-suit-900 mb-6">Contact Us</h2>
-          <p className="text-suit-700 mb-8">
+    <section id="contact" className="relative w-full bg-gradient-to-b from-white to-gray-100 py-24 px-5 md:px-20 overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-sky-300/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-slate-700 to-slate-900 mb-6">
+            Contact Us
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Have questions or need a quote? Get in touch with our team today.
           </p>
+        </div>
 
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold text-suit-800">Phone</h3>
-              <p className="text-suit-700">+91 98765 43210</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+          {/* Left: Contact Info */}
+          <div className="space-y-8">
+            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
+                  <a href="tel:+919876543210" className="text-lg text-sky-600 hover:text-sky-700 font-medium transition-colors">+91 98765 43210</a>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-suit-800">Email</h3>
-              <p className="text-suit-700">contact@uniformco.in</p>
+            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
+                  <a href="mailto:contact@uniformco.in" className="text-lg text-sky-600 hover:text-sky-700 font-medium transition-colors">contact@uniformco.in</a>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-suit-800">Office Address</h3>
-              <p className="text-suit-700">
-                4th Floor, Corporate Tower,  
-                Connaught Place, New Delhi, 110001
-              </p>
+            <div className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Office Address</h3>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    4th Floor, Corporate Tower,<br />
+                    Connaught Place, New Delhi, 110001
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Right: Contact Form */}
+          <div className="bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
+            <h3 className="text-3xl font-bold text-slate-900 mb-8">Send us a Message</h3>
+            <form className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-slate-800 font-semibold mb-2 text-lg">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Your Name"
+                  required
+                  className="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none transition-all duration-300 text-lg"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-slate-800 font-semibold mb-2 text-lg">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                  className="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none transition-all duration-300 text-lg"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-slate-800 font-semibold mb-2 text-lg">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your requirements..."
+                  rows="5"
+                  required
+                  className="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none transition-all duration-300 text-lg resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+
         </div>
-
-        {/* Right: Contact Form */}
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <form className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-suit-800 font-medium">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Your Name"
-                required
-                className="mt-2 w-full border border-suit-300 rounded-lg p-3 focus:ring-2 focus:ring-suit-500 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-suit-800 font-medium">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                required
-                className="mt-2 w-full border border-suit-300 rounded-lg p-3 focus:ring-2 focus:ring-suit-500 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-suit-800 font-medium">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Your message..."
-                rows="4"
-                required
-                className="mt-2 w-full border border-suit-300 rounded-lg p-3 focus:ring-2 focus:ring-suit-500 focus:outline-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-suit-800 text-white py-3 rounded-lg hover:bg-suit-900 transition-colors duration-300"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-
       </div>
     </section>
   );
