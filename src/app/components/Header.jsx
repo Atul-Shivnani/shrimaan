@@ -39,7 +39,7 @@ const Header = () => {
         <nav className="hidden md:block" aria-label="Main navigation">
           <ul className="flex items-center gap-8">
             <li>
-              <Link
+              <a
                 href="#home"
                 className={`font-semibold text-lg transition-all duration-300 relative group ${
                   scrolled ? "text-slate-800 hover:text-sky-600" : "text-white hover:text-sky-300"
@@ -47,10 +47,10 @@ const Header = () => {
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
+              <a
                 href="#services"
                 className={`font-semibold text-lg transition-all duration-300 relative group ${
                   scrolled ? "text-slate-800 hover:text-sky-600" : "text-white hover:text-sky-300"
@@ -58,10 +58,10 @@ const Header = () => {
               >
                 Services
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
+              <a
                 href="#about"
                 className={`font-semibold text-lg transition-all duration-300 relative group ${
                   scrolled ? "text-slate-800 hover:text-sky-600" : "text-white hover:text-sky-300"
@@ -69,15 +69,15 @@ const Header = () => {
               >
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
+              <a
                 href="#contact"
                 className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full px-6 py-3 font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Contact Us
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
@@ -113,40 +113,40 @@ const Header = () => {
         <nav aria-label="Mobile navigation">
           <ul className="flex flex-col items-center gap-1 py-6">
             <li className="w-full">
-              <Link
+              <a
                 href="#home"
                 className="block text-center py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-lg transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Home
-              </Link>
+              </a>
             </li>
             <li className="w-full">
-              <Link
+              <a
                 href="#services"
                 className="block text-center py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-lg transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Services
-              </Link>
+              </a>
             </li>
             <li className="w-full">
-              <Link
+              <a
                 href="#about"
                 className="block text-center py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-lg transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 About
-              </Link>
+              </a>
             </li>
             <li className="w-full px-6 mt-2">
-              <Link
+              <a
                 href="#contact"
                 className="block text-center bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full px-6 py-3 font-bold text-lg transition-all duration-300 shadow-lg"
                 onClick={() => setMenuOpen(false)}
               >
                 Contact Us
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>

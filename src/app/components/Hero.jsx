@@ -44,7 +44,7 @@ export default function HeroCarousel() {
             alt={slide.alt}
             fill
             priority={index === 0}
-            className="object-cover scale-105 animate-ken-burns"
+            className="object-cover"
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-transparent" />

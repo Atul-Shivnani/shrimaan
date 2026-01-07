@@ -9,7 +9,7 @@ import FloatingCTA from "./components/FloatingCTA";
 
 export default function Home() {
   return (
-    <div className="h-full w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       <Header />
       <HeroCarousel />
       <ServicesSection />

@@ -1,4 +1,10 @@
+
+
 @import "tailwindcss";
+
+#home, #services, #about, #contact {
+  scroll-margin-top: 4rem;
+}
 
 @theme {
   --color-suit-900: #001d3d;
