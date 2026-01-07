@@ -54,44 +54,44 @@ export default function ServicesSection() {
             Discover our comprehensive range of premium uniform solutions tailored to your industry needs
           </p>
         </div>
+      </div>
 
-        {/* Services Grid */}
-        <div className="space-y-0">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className={`group relative flex flex-col ${
-                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } w-full overflow-hidden transition-all duration-500 hover:shadow-2xl`}
-            >
-              {/* Main Service Image */}
-              <div className="w-full relative h-[250px] lg:h-[400px] overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/10 to-transparent z-10 group-hover:from-slate-900/5 transition-all duration-500"></div>
-                <Image
-                  src={service.mainImage}
-                  alt={service.name}
-                  fill
-                  className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-
-              {/* Description Image */}
-              <div className="w-full relative h-[250px] lg:h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tl from-sky-900/20 to-transparent z-10"></div>
-                <Image
-                  src={service.descriptionImage}
-                  alt={`${service.name} description`}
-                  fill
-                  className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                {/* Service Name Badge */}
-                {/* <div className="absolute bottom-8 left-8 z-20 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl transform group-hover:translate-x-2 transition-transform duration-300">
-                  <h3 className="text-xl font-bold text-slate-900">{service.name}</h3>
-                </div> */}
-              </div>
+      {/* Services Grid */}
+      <div className="space-y-0">
+        {services.map((service, index) => (
+          <div
+            key={service.id}
+            className={`group relative flex flex-col ${
+              index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+            } w-full overflow-hidden transition-all duration-500 hover:shadow-2xl`}
+          >
+            {/* Main Service Image */}
+            <div className="w-full relative h-[250px] lg:h-[400px] overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/10 to-transparent z-10 group-hover:from-slate-900/5 transition-all duration-500"></div>
+              <Image
+                src={service.mainImage}
+                alt={service.name}
+                fill
+                className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
             </div>
-          ))}
-        </div>
+
+            {/* Description Image */}
+            <div className="w-full relative h-[250px] lg:h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tl from-sky-900/20 to-transparent z-10"></div>
+              <Image
+                src={service.descriptionImage}
+                alt={`${service.name} description`}
+                fill
+                className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              {/* Service Name Badge */}
+              {/* <div className="absolute bottom-8 left-8 z-20 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl transform group-hover:translate-x-2 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-slate-900">{service.name}</h3>
+              </div> */}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
