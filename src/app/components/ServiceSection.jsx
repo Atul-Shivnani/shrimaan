@@ -76,7 +76,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Description Image */}
-              <div className="w-full lg:w-1/2 relative h-[2s50px] lg:h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
+              <div className="hidden lg:flex w-full lg:w-1/2 relative h-[250px] lg:h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-tl from-sky-900/20 to-transparent z-10"></div>
                 <Image
                   src={service.descriptionImage}
