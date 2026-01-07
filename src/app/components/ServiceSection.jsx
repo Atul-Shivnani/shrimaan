@@ -65,7 +65,7 @@ export default function ServicesSection() {
               } w-full overflow-hidden transition-all duration-500 hover:shadow-2xl`}
             >
               {/* Main Service Image */}
-              <div className="w-full lg:w-1/2 relative h-[250px] lg:h-[400px] overflow-hidden">
+              <div className="w-full relative h-[250px] lg:h-[400px] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900/10 to-transparent z-10 group-hover:from-slate-900/5 transition-all duration-500"></div>
                 <Image
                   src={service.mainImage}
@@ -76,7 +76,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Description Image */}
-              <div className="hidden lg:flex w-full lg:w-1/2 relative h-[250px] lg:h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
+              <div className="w-full relative h-[250px] lg:h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-tl from-sky-900/20 to-transparent z-10"></div>
                 <Image
                   src={service.descriptionImage}
