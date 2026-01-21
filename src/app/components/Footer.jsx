@@ -129,7 +129,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <a href="mailto:contact@uniformco.in" className="hover:text-sky-400 transition-colors break-all">
-                    contact@uniformco.in
+                    enquiry@shrimaanuniforms.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
@@ -138,9 +138,9 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <span className="leading-relaxed">
-                    4th Floor, Corporate Tower,<br />
-                    Connaught Place,<br />
-                    New Delhi, 110001
+                    Mafatlal Shrimaan Uniforms,<br />
+                    Narmada Apartments, Raopur<br />
+                    Vadodara, 390001
                   </span>
                 </li>
               </ul>

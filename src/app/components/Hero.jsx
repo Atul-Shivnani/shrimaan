@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const slides = [
   {
-    src: "/23-12-25 Option 1.PNG",
+    src: "/sheetal cover.jpg",
     alt: "INDIAQO - Quality Textile Solutions",
     title: "Premium Corporate Uniforms",
     description: "Tailored solutions for your company's image and comfort.",
@@ -44,7 +44,10 @@ export default function HeroCarousel() {
             alt={slide.alt}
             fill
             priority={index === 0}
-            className="object-contain lg:object-cover"
+            className="object-cover"
+            style={{
+              objectPosition: 'center 70%' // Shows more of the bottom portion, crops from top
+            }}
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-transparent" />
@@ -52,7 +55,7 @@ export default function HeroCarousel() {
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-20">
             <div className="max-w-5xl animate-fade-in-up">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-200 via-white to-sky-100 drop-shadow-2xl">
                   {slide.title}
                 </span>
