@@ -12,7 +12,7 @@ export default function AboutSection() {
     },
     {
       number: "4",
-      label: "Major Sectors Served: Hospital, Corporate, IT, and Manufacturing",
+      label: "Major Sectors Served: Manufacturing Industries and Corporate Institutions",
     },
   ];
 
