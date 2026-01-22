@@ -9,41 +9,39 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-50 shadow-lg border-b border-gray-200 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 md:px-6 py-2 sm:py-2.5">
         {/* Left: Company Logo and Tagline */}
-        <div className="flex items-center gap-0 sm:gap-1">
-          <Link href="/" className="flex items-center group">
-            <img
-              src="/Only logo- without bg.png"
-              alt="Company Logo - Corporate Uniform Manufacturer"
-              className="h-12 sm:h-14 md:h-16 w-auto transform group-hover:scale-105 transition-transform duration-300"
-            />
-          </Link>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-1">
+          {/* Logo and Company Name Unit */}
+          <div className="flex items-center gap-1">
+            <Link href="/" className="flex items-center group">
+              <img
+                src="/Only logo- without bg.png"
+                alt="Company Logo - Corporate Uniform Manufacturer"
+                className="h-12 sm:h-14 md:h-16 w-auto transform group-hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
 
-          {/* Responsive Tagline Text */}
-          <div className="flex flex-col">
-            {/* Desktop/Tablet Tagline */}
-            <div className="hidden sm:block">
-              <div className="text-blue-900 font-black text-lg md:text-xl lg:text-2xl leading-tight tracking-wide font-inter">
-                SHRIMAAN UNIFORMS
-              </div>
-              <div className="text-blue-800 font-light text-xs md:text-sm lg:text-base -mt-1 italic tracking-wide font-roboto-condensed">
-                Crafting Identity, Tailoring Excellence
-              </div>
-            </div>
-
-            {/* Mobile Tagline */}
+            {/* Company Name - Always horizontal with logo on mobile */}
             <div className="block sm:hidden">
               <div className="text-blue-700 font-black text-sm leading-tight tracking-wide font-inter">
-                SHRIMAAN
+                SHRIMAAN UNIFORMS
               </div>
-              <div className="text-blue-700 font-black text-sm leading-tight -mt-0.5 tracking-wide font-inter">
-                UNIFORMS
-              </div>
-              <div className="text-blue-600 font-light text-xs leading-tight -mt-0.5 italic tracking-wide font-roboto-condensed">
-                Crafting Identity,
-              </div>
-              <div className="text-blue-600 font-light text-xs leading-tight -mt-0.5 italic tracking-wide font-roboto-condensed">
-                Tailoring Excellence
-              </div>
+            </div>
+          </div>
+
+          {/* Desktop/Tablet Company Name and Tagline */}
+          <div className="hidden sm:flex sm:flex-col">
+            <div className="text-blue-900 font-black text-lg md:text-xl lg:text-2xl leading-tight tracking-wide font-inter">
+              SHRIMAAN UNIFORMS
+            </div>
+            <div className="text-blue-800 font-light text-xs md:text-sm lg:text-base -mt-1 italic tracking-wide font-roboto-condensed">
+              Crafting Identity, Tailoring Excellence
+            </div>
+          </div>
+
+          {/* Mobile Tagline - Below the logo and company name unit */}
+          <div className="block sm:hidden mt-1">
+            <div className="text-blue-600 font-light text-xs leading-tight italic tracking-wide font-roboto-condensed">
+              Crafting Identity, Tailoring Excellence
             </div>
           </div>
         </div>
