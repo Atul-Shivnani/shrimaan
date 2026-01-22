@@ -20,14 +20,21 @@ const Header = () => {
               />
             </Link>
             
-            {/* Company Name - Stacked vertically on mobile */}
-            <div className="block sm:hidden ml-1">
-              <div className="text-blue-900 font-black text-sm leading-tight tracking-wide font-inter">
+            {/* Mobile Company Name (Stacked) */}
+            <div className="block sm:hidden ml-1 flex flex-col justify-center">
+              <span className="text-blue-900 font-black text-[15px] leading-none tracking-wide font-inter">
                 SHRIMAAN
-              </div>
-              <div className="text-blue-900 font-black text-sm leading-tight -mt-0.5 tracking-wide font-inter">
+              </span>
+              <span className="text-blue-900 font-bold text-[13px] leading-none tracking-[0.05em] font-inter">
                 UNIFORMS
-              </div>
+              </span>
+            </div>
+          </div>
+
+          {/* Mobile Tagline - Below Logo and Name */}
+          <div className="block sm:hidden -mt-1 ml-1 mb-1">
+            <div className="text-blue-700/80 font-medium text-[10px] leading-tight italic tracking-wide font-roboto-condensed">
+              Crafting Identity, Tailoring Excellence
             </div>
           </div>
           
@@ -37,13 +44,6 @@ const Header = () => {
               SHRIMAAN UNIFORMS
             </div>
             <div className="text-blue-800 font-light text-xs md:text-sm lg:text-base -mt-1 italic tracking-wide font-roboto-condensed">
-              Crafting Identity, Tailoring Excellence
-            </div>
-          </div>
-          
-          {/* Mobile Tagline - Below the logo and company name unit */}
-          <div className="block sm:hidden mt-1">
-            <div className="text-blue-800 font-light text-xs leading-tight italic tracking-wide font-roboto-condensed">
               Crafting Identity, Tailoring Excellence
             </div>
           </div>
