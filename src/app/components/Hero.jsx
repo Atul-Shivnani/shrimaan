@@ -5,6 +5,7 @@ import Image from "next/image";
 const slides = [
   {
     src: "/sheetal cover.jpg",
+    srcMobile: "/sheetal cover V.jpg",
     alt: "INDIAQO - Quality Textile Solutions",
     title: "Premium Corporate Uniforms",
     description: "Tailored solutions for your company's image and comfort.",
@@ -13,7 +14,27 @@ const slides = [
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const hasMultipleSlides = slides.length > 1;
+
+  // Check if screen is mobile size with smooth transition
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const newIsMobile = window.innerWidth < 768;
+      if (newIsMobile !== isMobile) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setIsMobile(newIsMobile);
+          setTimeout(() => setIsTransitioning(false), 50);
+        }, 300);
+      }
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, [isMobile]);
 
   // Auto-rotate every 5 seconds - only if multiple slides
   useEffect(() => {
@@ -39,14 +60,31 @@ export default function HeroCarousel() {
             index === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
+          {/* Desktop Image */}
           <Image
             src={slide.src}
             alt={slide.alt}
             fill
             priority={index === 0}
-            className="object-cover"
+            className={`object-cover transition-opacity duration-500 ${
+              isMobile || isTransitioning ? 'opacity-0' : 'opacity-100'
+            }`}
             style={{
-              objectPosition: 'center 70%' // Shows more of the bottom portion, crops from top
+              objectPosition: 'center 70%'
+            }}
+          />
+          
+          {/* Mobile Image */}
+          <Image
+            src={slide.srcMobile}
+            alt={slide.alt}
+            fill
+            priority={index === 0}
+            className={`object-cover transition-opacity duration-500 ${
+              isMobile && !isTransitioning ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              objectPosition: 'center center'
             }}
           />
           {/* Gradient Overlay */}

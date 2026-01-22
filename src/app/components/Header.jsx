@@ -6,34 +6,55 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header
-      className="fixed top-0 left-0 w-full z-50 bg-gray-50 shadow-lg border-b border-gray-200 transition-all duration-300"
-    >
+    <header className="fixed top-0 left-0 w-full z-50 bg-gray-50 shadow-lg border-b border-gray-200 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 md:px-6 py-2 sm:py-2.5">
-
         {/* Left: Company Logo and Tagline */}
-        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+        <div className="flex items-center gap-0 sm:gap-1">
           <Link href="/" className="flex items-center group">
             <img
               src="/Only logo- without bg.png"
               alt="Company Logo - Corporate Uniform Manufacturer"
-              className="h-10 sm:h-12 md:h-14 w-auto transform group-hover:scale-105 transition-transform duration-300"
+              className="h-12 sm:h-14 md:h-16 w-auto transform group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
-          <img
-            src="/Tagline - without bg.png"
-            alt="Company Tagline"
-            className="h-7 sm:h-8 md:h-10 w-auto"
-          />
+
+          {/* Responsive Tagline Text */}
+          <div className="flex flex-col">
+            {/* Desktop/Tablet Tagline */}
+            <div className="hidden sm:block">
+              <div className="text-blue-900 font-black text-lg md:text-xl lg:text-2xl leading-tight tracking-wide font-inter">
+                SHRIMAAN UNIFORMS
+              </div>
+              <div className="text-blue-800 font-light text-xs md:text-sm lg:text-base -mt-1 italic tracking-wide font-roboto-condensed">
+                Crafting Identity, Tailoring Excellence
+              </div>
+            </div>
+
+            {/* Mobile Tagline */}
+            <div className="block sm:hidden">
+              <div className="text-blue-700 font-black text-sm leading-tight tracking-wide font-inter">
+                SHRIMAAN
+              </div>
+              <div className="text-blue-700 font-black text-sm leading-tight -mt-0.5 tracking-wide font-inter">
+                UNIFORMS
+              </div>
+              <div className="text-blue-600 font-light text-xs leading-tight -mt-0.5 italic tracking-wide font-roboto-condensed">
+                Crafting Identity,
+              </div>
+              <div className="text-blue-600 font-light text-xs leading-tight -mt-0.5 italic tracking-wide font-roboto-condensed">
+                Tailoring Excellence
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Center: Mafatlal Embed Logo */}
-        <div className="absolute left-1/2 transform -translate-x-1/2">
+        <div className="absolute left-1/2 transform -translate-x-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 left-[60%] transform -translate-x-1/2">
           <Link href="/" className="flex items-center group">
             <img
-              src="/Shrimaan new Mafatlal embed logo.png"
+              src="/Shrimaan new Mafatlal embed logo-Photoroom.png"
               alt="Authorized Distributor of Mafatlal"
-              className="h-10 sm:h-12 md:h-14 w-auto transform group-hover:scale-105 transition-transform duration-300"
+              className="h-12 sm:h-14 md:h-16 w-auto transform group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
         </div>
@@ -80,7 +101,10 @@ const Header = () => {
         </nav>
 
         {/* Tablet Navigation - Simplified */}
-        <nav className="hidden md:block lg:hidden" aria-label="Tablet navigation">
+        <nav
+          className="hidden md:block lg:hidden"
+          aria-label="Tablet navigation"
+        >
           <ul className="flex items-center gap-3">
             <li>
               <a
@@ -116,14 +140,26 @@ const Header = () => {
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-7 sm:w-7" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 sm:h-7 sm:w-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
+          >
             {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
@@ -173,7 +209,7 @@ const Header = () => {
                 Contact Us
               </a>
             </li>
-            
+
             {/* Mobile Mafatlal Logo - Removed since center logo is now always visible */}
           </ul>
         </nav>

@@ -46,7 +46,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
-                  <a href="mailto:contact@uniformco.in" className="text-lg text-sky-600 hover:text-sky-700 font-medium transition-colors">contact@uniformco.in</a>
+                  <a href="mailto:contact@uniformco.in" className="text-lg text-sky-600 hover:text-sky-700 font-medium transition-colors">enquiry@shrimaanuniforms.com</a>
                 </div>
               </div>
             </div>
@@ -61,9 +61,10 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Office Address</h3>
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    4th Floor, Corporate Tower,<br />
-                    Connaught Place, New Delhi, 110001
+                  <p className="text-lg text-slate-900 leading-relaxed">
+                  Mafatlal Shrimaan Uniforms,<br />
+                    Narmada Apartments, Raopur<br />
+                    Vadodara, 390001
                   </p>
                 </div>
               </div>
