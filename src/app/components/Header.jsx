@@ -19,15 +19,18 @@ const Header = () => {
                 className="h-12 sm:h-14 md:h-16 w-auto transform group-hover:scale-105 transition-transform duration-300"
               />
             </Link>
-
-            {/* Company Name - Always horizontal with logo on mobile */}
-            <div className="block sm:hidden">
-              <div className="text-blue-700 font-black text-sm leading-tight tracking-wide font-inter">
-                SHRIMAAN UNIFORMS
+            
+            {/* Company Name - Stacked vertically on mobile */}
+            <div className="block sm:hidden ml-1">
+              <div className="text-blue-900 font-black text-sm leading-tight tracking-wide font-inter">
+                SHRIMAAN
+              </div>
+              <div className="text-blue-900 font-black text-sm leading-tight -mt-0.5 tracking-wide font-inter">
+                UNIFORMS
               </div>
             </div>
           </div>
-
+          
           {/* Desktop/Tablet Company Name and Tagline */}
           <div className="hidden sm:flex sm:flex-col">
             <div className="text-blue-900 font-black text-lg md:text-xl lg:text-2xl leading-tight tracking-wide font-inter">
@@ -37,17 +40,17 @@ const Header = () => {
               Crafting Identity, Tailoring Excellence
             </div>
           </div>
-
+          
           {/* Mobile Tagline - Below the logo and company name unit */}
           <div className="block sm:hidden mt-1">
-            <div className="text-blue-600 font-light text-xs leading-tight italic tracking-wide font-roboto-condensed">
+            <div className="text-blue-800 font-light text-xs leading-tight italic tracking-wide font-roboto-condensed">
               Crafting Identity, Tailoring Excellence
             </div>
           </div>
         </div>
 
         {/* Center: Mafatlal Embed Logo */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 left-[60%] transform -translate-x-1/2">
+        <div className="absolute left-[60%] sm:left-1/2 transform -translate-x-1/2">
           <Link href="/" className="flex items-center group">
             <img
               src="/Shrimaan new Mafatlal embed logo-Photoroom.png"

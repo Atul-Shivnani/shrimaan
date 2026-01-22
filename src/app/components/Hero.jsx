@@ -93,7 +93,7 @@ export default function HeroCarousel() {
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-20">
             <div className="max-w-5xl animate-fade-in-up">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-200 via-white to-sky-100 drop-shadow-2xl">
                   {slide.title}
                 </span>
