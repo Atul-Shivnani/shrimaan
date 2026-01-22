@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
@@ -12,12 +14,31 @@ export default function Footer() {
 
             {/* Company Info */}
             <div className="lg:col-span-1">
-              <div className="mb-6">
-                <img
-                  src="/logo.png"
-                  alt="Company Logo"
-                  className="h-14 w-auto mb-4"
-                />
+              <div className="flex flex-col mb-6">
+                <div className="flex items-center gap-2">
+                  <Link href="/" className="flex items-center group">
+                    <img
+                      src="/Only logo- without bg.png"
+                      alt="Company Logo - Corporate Uniform Manufacturer"
+                      className="h-14 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </Link>
+                  
+                  {/* Company Name */}
+                  <div className="flex flex-col justify-center">
+                    <span className="text-sky-100 font-black text-[17px] leading-none tracking-wide font-inter">
+                      SHRIMAAN
+                    </span>
+                    <span className="text-sky-200 font-bold text-[15px] leading-none tracking-[0.05em] font-inter">
+                      UNIFORMS
+                    </span>
+                  </div>
+                </div>
+
+                {/* Tagline */}
+                <div className="text-sky-200/80 font-medium text-xs leading-tight italic tracking-wide font-roboto-condensed">
+                  Crafting Identity, Tailoring Excellence
+                </div>
               </div>
               <p className="text-gray-300 leading-relaxed mb-6">
                 Premium corporate uniforms, tailored to your brand. Serving businesses across India with style and professionalism for over 50 years.
@@ -152,14 +173,14 @@ export default function Footer() {
           <div className="border-t border-gray-700 pt-8 mt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-center md:text-left">
-                © {new Date().getFullYear()} INDIAQO. All Rights Reserved.
+                © {new Date().getFullYear()} SRIMAAN UNIFORMS. All Rights Reserved.
               </p>
               <div className="flex gap-6 text-sm text-gray-400">
                 <a href="#" className="hover:text-sky-400 transition-colors">Privacy Policy</a>
                 <span>•</span>
                 <a href="#" className="hover:text-sky-400 transition-colors">Terms of Service</a>
-                <span>•</span>
-                <a href="#" className="hover:text-sky-400 transition-colors">Sitemap</a>
+                {/* <span>•</span>
+                <a href="#" className="hover:text-sky-400 transition-colors">Sitemap</a> */}
               </div>
             </div>
           </div>

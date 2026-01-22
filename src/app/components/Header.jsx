@@ -21,18 +21,18 @@ const Header = () => {
             </Link>
             
             {/* Mobile Company Name (Stacked) */}
-            <div className="block sm:hidden ml-1 flex flex-col justify-center">
-              <span className="text-blue-900 font-black text-[15px] leading-none tracking-wide font-inter">
+            <div className="block sm:hidden flex flex-col justify-center">
+              <span className="text-blue-900 font-black text-[17px] leading-none tracking-wide font-inter">
                 SHRIMAAN
               </span>
-              <span className="text-blue-900 font-bold text-[13px] leading-none tracking-[0.05em] font-inter">
+              <span className="text-blue-900 font-bold text-[15px] leading-none tracking-[0.05em] font-inter">
                 UNIFORMS
               </span>
             </div>
           </div>
 
           {/* Mobile Tagline - Below Logo and Name */}
-          <div className="block sm:hidden -mt-1 ml-1 mb-1">
+          <div className="block sm:hidden">
             <div className="text-blue-700/80 font-medium text-[10px] leading-tight italic tracking-wide font-roboto-condensed">
               Crafting Identity, Tailoring Excellence
             </div>
