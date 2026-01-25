@@ -19,6 +19,9 @@ const robotoCondensed = Roboto_Condensed({
 export const metadata = {
   title: "Srimaan Uniform",
   description: "Best Uniform Manufacturer in the Town",
+  icons: {
+    icon: "/Only logo- without bg.png",
+  },
 };
 
 export default function RootLayout({ children }) {

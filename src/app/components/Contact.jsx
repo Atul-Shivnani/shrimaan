@@ -46,7 +46,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
-                  <a href="mailto:contact@uniformco.in" className="text-lg sm:text-sm text-sky-600 hover:text-sky-700 font-medium transition-colors">enquiry@shrimaanuniforms.com</a>
+                  <a href="mailto:contact@uniformco.in" className="text-sm sm:text-base text-sky-600 hover:text-sky-700 font-medium transition-colors break-all">enquiry@shrimaanuniforms.com</a>
                 </div>
               </div>
             </div>
