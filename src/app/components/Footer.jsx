@@ -160,7 +160,7 @@ export default function Footer() {
                   </svg>
                   <span className="leading-relaxed">
                     Mafatlal Shrimaan Uniforms,<br />
-                    Narmada Apartments, Raopur<br />
+                    Narmada Apartments, Raopura<br />
                     Vadodara, 390001
                   </span>
                 </li>
