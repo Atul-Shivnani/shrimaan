@@ -7,12 +7,8 @@ export default function AboutSection() {
       label: "Years of Industry Experience",
     },
     {
-      number: "500+",
+      number: "2000+",
       label: "Satisfied Clients across India",
-    },
-    {
-      number: "4",
-      label: "Major Sectors Served: Manufacturing Industries and Corporate Institutions",
     },
   ];
 
@@ -58,7 +54,7 @@ export default function AboutSection() {
           Our Impact by the Numbers
         </h3>
         <div className="w-20 h-1 bg-gradient-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-16"></div>
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] justify-items-center max-w-6xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}

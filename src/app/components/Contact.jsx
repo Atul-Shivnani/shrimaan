@@ -32,7 +32,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
-                  <a href="tel:+919876543210" className="text-lg text-sky-600 sm:text-sm hover:text-sky-700 font-medium transition-colors">+91 98765 43210</a>
+                  <a href="tel:+919876543210" className="text-lg text-sky-600 sm:text-sm hover:text-sky-700 font-medium transition-colors">+91 97695 74841</a>
                 </div>
               </div>
             </div>

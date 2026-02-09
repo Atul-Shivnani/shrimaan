@@ -32,12 +32,6 @@ const services = [
     mainImage: "/5. Safety Uniform.png",
     descriptionImage: "/5a. Safety Uniform.PNG",
   },
-  {
-    id: 6,
-    name: "Bed and Bath",
-    mainImage: "/6. Bed and bath.png",
-    descriptionImage: "/6a. Bed and bath.PNG",
-  },
 ];
 
 export default function ServicesSection() {
