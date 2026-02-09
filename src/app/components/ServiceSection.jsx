@@ -31,7 +31,7 @@ const services = [
     name: "Safety Uniform",
     mainImage: "/5. Safety Uniform.png",
     descriptionImage: "/5a. Safety Uniform.PNG",
-  },
+  }
 ];
 
 export default function ServicesSection() {
