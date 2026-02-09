@@ -19,7 +19,7 @@ export default function FloatingCTA() {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+919876543210";
+    window.location.href = "tel:+919769574841";
   };
 
   return (
