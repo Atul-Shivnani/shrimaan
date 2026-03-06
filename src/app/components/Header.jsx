@@ -1,9 +1,23 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-50 shadow-lg border-b border-gray-200 transition-all duration-300">
@@ -63,41 +77,23 @@ const Header = () => {
         {/* Right: Desktop Navigation */}
         <nav className="hidden lg:block" aria-label="Main navigation">
           <ul className="flex items-center gap-4 xl:gap-8">
-            <li>
-              <a
-                href="#home"
-                className="font-semibold text-base lg:text-lg transition-all duration-300 relative group text-slate-800 hover:text-sky-600"
-              >
-                Home
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#services"
-                className="font-semibold text-base lg:text-lg transition-all duration-300 relative group text-slate-800 hover:text-sky-600"
-              >
-                Services
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="font-semibold text-base lg:text-lg transition-all duration-300 relative group text-slate-800 hover:text-sky-600"
-              >
-                About
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300"></span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full px-4 lg:px-6 py-2 lg:py-3 font-bold text-base lg:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Contact Us
-              </a>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`font-semibold text-base lg:text-lg transition-all duration-300 relative group ${
+                    isActive(item.href) ? "text-sky-600" : "text-slate-800 hover:text-sky-600"
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 bg-sky-500 transition-all duration-300 ${
+                      isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -108,28 +104,28 @@ const Header = () => {
         >
           <ul className="flex items-center gap-3">
             <li>
-              <a
-                href="#home"
+              <Link
+                href="/"
                 className="font-semibold text-sm transition-all duration-300 relative group text-slate-800 hover:text-sky-600"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 className="font-semibold text-sm transition-all duration-300 relative group text-slate-800 hover:text-sky-600"
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full px-3 py-1.5 font-bold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -174,42 +170,17 @@ const Header = () => {
       >
         <nav aria-label="Mobile navigation">
           <ul className="flex flex-col items-center gap-1 py-4 sm:py-6">
-            <li className="w-full">
-              <a
-                href="#home"
-                className="block text-center py-2.5 sm:py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-base sm:text-lg transition-all duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Home
-              </a>
-            </li>
-            <li className="w-full">
-              <a
-                href="#services"
-                className="block text-center py-2.5 sm:py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-base sm:text-lg transition-all duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Services
-              </a>
-            </li>
-            <li className="w-full">
-              <a
-                href="#about"
-                className="block text-center py-2.5 sm:py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-base sm:text-lg transition-all duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                About
-              </a>
-            </li>
-            <li className="w-full px-4 sm:px-6 mt-2">
-              <a
-                href="#contact"
-                className="block text-center bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full px-4 sm:px-6 py-2.5 sm:py-3 font-bold text-base sm:text-lg transition-all duration-300 shadow-lg"
-                onClick={() => setMenuOpen(false)}
-              >
-                Contact Us
-              </a>
-            </li>
+            {navItems.map((item) => (
+              <li className="w-full" key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block text-center py-2.5 sm:py-3 text-slate-800 hover:bg-sky-50 hover:text-sky-600 font-semibold text-base sm:text-lg transition-all duration-200"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
 
             {/* Mobile Mafatlal Logo - Removed since center logo is now always visible */}
           </ul>

@@ -173,7 +173,7 @@ export default function Footer() {
           <div className="border-t border-gray-700 pt-8 mt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-center md:text-left">
-                © {new Date().getFullYear()} SRIMAAN UNIFORMS. All Rights Reserved.
+                © {new Date().getFullYear()} SHRIMAAN UNIFORMS. All Rights Reserved.
               </p>
               <div className="flex gap-6 text-sm text-gray-400">
                 <a href="#" className="hover:text-sky-400 transition-colors">Privacy Policy</a>

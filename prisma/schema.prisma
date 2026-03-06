@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([read])
+}
+
+model Visitor {
+  id          Int        @id @default(autoincrement())
+  visitorKey  String     @unique
+  sessionId   String?    @unique
+  ipAddress   String?
+  userAgent   String?
+  device      String?    @default("desktop")
+  country     String?
+  region      String?
+  city        String?
+  timezone    String?
+  firstSeenAt DateTime   @default(now())
+  lastSeenAt  DateTime   @default(now())
+  visitCount  Int        @default(1)
+  pageViews   PageView[]
+
+  @@index([lastSeenAt])
+  @@index([country])
+  @@index([device])
+}
+
+model PageView {
+  id        Int      @id @default(autoincrement())
+  path      String
+  page      String?
+  sessionId String?
+  referrer  String?
+  userAgent String?
+  ipAddress String?
+  country   String?
+  region    String?
+  city      String?
+  screen    String?
+  language  String?
+  timezone  String?
+  sections     String[] @default([])
+  sectionTimes Json?
+  duration     Int      @default(0)
+  createdAt DateTime @default(now())
+  visitorId Int?
+  visitor   Visitor? @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+
+  @@index([visitorId])
+  @@index([createdAt])
+  @@index([path])
+  @@index([sessionId])
+}
+
+model SiteContent {
+  id        Int      @id @default(autoincrement())
+  section   String   @unique
+  content   Json
+  updatedAt DateTime @updatedAt
+
+  @@index([section])
+}
+

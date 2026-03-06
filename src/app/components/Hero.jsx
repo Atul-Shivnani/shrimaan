@@ -2,23 +2,23 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const slides = [
+const DEFAULT_SLIDES = [
   {
     src: "/sheetal cover.jpg",
     srcMobile: "/sheetal cover V.jpg",
-    alt: "INDIAQO - Quality Textile Solutions",
+    alt: "Shrimaan Uniforms",
     title: "Premium Corporate Uniforms",
     description: "Tailored solutions for your company's image and comfort.",
   },
 ];
 
-export default function HeroCarousel() {
+export default function HeroCarousel({ slides: slidesProp }) {
+  const slides = Array.isArray(slidesProp) && slidesProp.length > 0 ? slidesProp : DEFAULT_SLIDES;
   const [current, setCurrent] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const hasMultipleSlides = slides.length > 1;
 
-  // Check if screen is mobile size with smooth transition
   useEffect(() => {
     const checkScreenSize = () => {
       const newIsMobile = window.innerWidth < 768;
@@ -30,29 +30,24 @@ export default function HeroCarousel() {
         }, 300);
       }
     };
-    
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, [isMobile]);
 
-  // Auto-rotate every 5 seconds - only if multiple slides
   useEffect(() => {
     if (!hasMultipleSlides) return;
-
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [hasMultipleSlides]);
+  }, [hasMultipleSlides, slides.length]);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prevSlide = () =>
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden">
-      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -63,30 +58,29 @@ export default function HeroCarousel() {
           {/* Desktop Image */}
           <Image
             src={slide.src}
-            alt={slide.alt}
+            alt={slide.alt || ""}
             fill
+            unoptimized
             priority={index === 0}
             className={`object-cover transition-opacity duration-500 ${
-              isMobile || isTransitioning ? 'opacity-0' : 'opacity-100'
+              isMobile || isTransitioning ? "opacity-0" : "opacity-100"
             }`}
-            style={{
-              objectPosition: 'center 70%'
-            }}
+            style={{ objectPosition: "center 70%" }}
           />
-          
+
           {/* Mobile Image */}
           <Image
-            src={slide.srcMobile}
-            alt={slide.alt}
+            src={slide.srcMobile || slide.src}
+            alt={slide.alt || ""}
             fill
+            unoptimized
             priority={index === 0}
             className={`object-cover transition-opacity duration-500 ${
-              isMobile && !isTransitioning ? 'opacity-100' : 'opacity-0'
+              isMobile && !isTransitioning ? "opacity-100" : "opacity-0"
             }`}
-            style={{
-              objectPosition: 'center center'
-            }}
+            style={{ objectPosition: "center center" }}
           />
+
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-transparent" />
 
@@ -125,40 +119,35 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* Navigation Buttons - Only show if multiple slides */}
       {hasMultipleSlides && (
         <>
           <button
             onClick={prevSlide}
             aria-label="Previous Slide"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-suit-900/50 hover:bg-suit-900/70 text-white p-3 rounded-full z-20"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-900/70 text-white p-3 rounded-full z-20"
           >
             &#8592;
           </button>
           <button
             onClick={nextSlide}
             aria-label="Next Slide"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-suit-900/50 hover:bg-suit-900/70 text-white p-3 rounded-full z-20"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-900/70 text-white p-3 rounded-full z-20"
           >
             &#8594;
           </button>
+          <div className="absolute bottom-6 w-full flex justify-center gap-3 z-20">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrent(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`w-3 h-3 rounded-full ${
+                  current === index ? "bg-sky-400" : "bg-sky-100/50"
+                }`}
+              />
+            ))}
+          </div>
         </>
-      )}
-
-      {/* Indicators - Only show if multiple slides */}
-      {hasMultipleSlides && (
-        <div className="absolute bottom-6 w-full flex justify-center gap-3 z-20">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrent(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              className={`w-3 h-3 rounded-full ${
-                current === index ? "bg-sky-400" : "bg-sky-100/50"
-              }`}
-            ></button>
-          ))}
-        </div>
       )}
     </section>
   );

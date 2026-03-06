@@ -1,6 +1,40 @@
 "use client";
 
+import { useState } from "react";
+
 export default function ContactSection() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState(null); // { type: "success" | "error", text: string }
+
+  const onChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setToast(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        setToast({ type: "success", text: "Message sent! We'll get back to you soon." });
+        setForm({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setToast({ type: "error", text: data.error || "Something went wrong. Please try again." });
+      }
+    } catch {
+      setToast({ type: "error", text: "Network error. Please try again." });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="relative w-full bg-gradient-to-b from-white to-gray-100 py-24 px-5 md:px-20 overflow-hidden">
       {/* Background Decorative Elements */}
@@ -32,7 +66,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
-                  <a href="tel:+919876543210" className="text-lg text-sky-600 sm:text-sm hover:text-sky-700 font-medium transition-colors">+91 97695 74841</a>
+                  <a href="tel:+919769574841" className="text-lg text-sky-600 sm:text-sm hover:text-sky-700 font-medium transition-colors">+91 97695 74841</a>
                 </div>
               </div>
             </div>
@@ -46,7 +80,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
-                  <a href="mailto:contact@uniformco.in" className="text-sm sm:text-base text-sky-600 hover:text-sky-700 font-medium transition-colors break-all">enquiry@shrimaanuniforms.com</a>
+                  <a href="mailto:enquiry@shrimaanuniforms.com" className="text-sm sm:text-base text-sky-600 hover:text-sky-700 font-medium transition-colors break-all">enquiry@shrimaanuniforms.com</a>
                 </div>
               </div>
             </div>
@@ -62,7 +96,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Office Address</h3>
                   <p className="text-lg text-slate-900 leading-relaxed sm:text-sm">
-                  Mafatlal Shrimaan Uniforms,<br />
+                    Mafatlal Shrimaan Uniforms,<br />
                     Narmada Apartments, Raopura<br />
                     Vadodara, 390001
                   </p>
@@ -74,7 +108,14 @@ export default function ContactSection() {
           {/* Right: Contact Form */}
           <div className="bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
             <h3 className="text-3xl font-bold text-slate-900 mb-8">Send us a Message</h3>
-            <form className="space-y-6">
+
+            {toast && (
+              <div className={`mb-6 rounded-xl p-4 text-sm font-medium ${toast.type === "success" ? "bg-green-50 text-green-800 border border-green-200" : "bg-red-50 text-red-800 border border-red-200"}`}>
+                {toast.text}
+              </div>
+            )}
+
+            <form onSubmit={onSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-slate-800 font-semibold mb-2 text-lg">
                   Name
@@ -85,6 +126,8 @@ export default function ContactSection() {
                   type="text"
                   placeholder="Your Name"
                   required
+                  value={form.name}
+                  onChange={onChange}
                   className="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none transition-all duration-300 text-lg"
                 />
               </div>
@@ -99,6 +142,23 @@ export default function ContactSection() {
                   type="email"
                   placeholder="you@example.com"
                   required
+                  value={form.email}
+                  onChange={onChange}
+                  className="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none transition-all duration-300 text-lg"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-slate-800 font-semibold mb-2 text-lg">
+                  Phone <span className="text-slate-400 font-normal text-base">(optional)</span>
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="+91 98765 43210"
+                  value={form.phone}
+                  onChange={onChange}
                   className="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none transition-all duration-300 text-lg"
                 />
               </div>
@@ -113,15 +173,18 @@ export default function ContactSection() {
                   placeholder="Tell us about your requirements..."
                   rows="5"
                   required
+                  value={form.message}
+                  onChange={onChange}
                   className="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none transition-all duration-300 text-lg resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>

@@ -1,33 +1,63 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
+import AnalyticsTracker from "./components/AnalyticsTracker";
+import MetaPixel from "./components/MetaPixel";
+import JsonLd from "./components/JsonLd";
+import { getSiteUrl, siteConfig } from "@/lib/site";
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-inter"
-});
-
-const robotoCondensed = Roboto_Condensed({ 
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-roboto-condensed"
-});
+const siteUrl = getSiteUrl();
+const ogImage = `${siteUrl}/Only%20logo-%20without%20bg.png`;
 
 export const metadata = {
-  title: "Srimaan Uniform",
-  description: "Best Uniform Manufacturer in the Town",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "uniform manufacturer Vadodara",
+    "corporate uniforms Gujarat",
+    "Mafatlal uniform distributor",
+    "Raymond uniform distributor",
+    "industrial workwear Vadodara",
+    "boiler suits manufacturer",
+    "safety uniform supplier India",
+    "bulk uniform manufacturer",
+    "office uniform Vadodara",
+    "uniform supplier Gujarat",
+  ],
+  authors: [{ name: siteConfig.name }],
   icons: {
     icon: "/Only logo- without bg.png",
   },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: siteConfig.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [ogImage],
+  },
+};
+
+export const viewport = {
+  themeColor: "#0c4a6e",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`bg-sky-50 ${inter.variable} ${robotoCondensed.variable}`}>
+      <body className="bg-sky-50">
+        <JsonLd />
+        <MetaPixel />
+        <AnalyticsTracker />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
