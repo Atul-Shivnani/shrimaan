@@ -1,11 +1,19 @@
 ﻿import Header from "@/app/components/Header";
 import ContactSection from "@/app/components/Contact";
+import ContactPageExtras from "@/app/components/ContactPageExtras";
 import Footer from "@/app/components/Footer";
 import { ContactIntentTracker } from "@/app/components/PixelEvents";
 
 export const metadata = {
-  title: "Contact",
-  description: "Contact Shrimaan Uniforms for requirements and quotes.",
+  title: "Contact Us",
+  description:
+    "Get in touch with Shrimaan Uniforms in Vadodara, Gujarat for bulk uniform orders, corporate workwear quotes, and custom uniform requirements. Call or WhatsApp us today.",
+  keywords: [
+    "contact Shrimaan Uniforms Vadodara",
+    "uniform supplier contact Gujarat",
+    "bulk uniform quote India",
+    "corporate uniform inquiry Vadodara",
+  ],
 };
 
 export default function ContactPage() {
@@ -16,6 +24,7 @@ export default function ContactPage() {
       <div className="pt-24">
         <ContactSection />
       </div>
+      <ContactPageExtras />
       <Footer />
     </main>
   );

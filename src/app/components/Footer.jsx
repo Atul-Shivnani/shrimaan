@@ -79,57 +79,40 @@ export default function Footer() {
             <div>
               <h4 className="text-xl font-bold mb-6 text-sky-300">Quick Links</h4>
               <ul className="space-y-3">
-                <li>
-                  <a href="#home" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 flex items-center group">
-                    <span className="w-0 h-0.5 bg-sky-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 flex items-center group">
-                    <span className="w-0 h-0.5 bg-sky-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 flex items-center group">
-                    <span className="w-0 h-0.5 bg-sky-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 flex items-center group">
-                    <span className="w-0 h-0.5 bg-sky-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
-                    Contact
-                  </a>
-                </li>
+                {[
+                  { href: "/", label: "Home" },
+                  { href: "/services", label: "Services" },
+                  { href: "/about", label: "About Us" },
+                  { href: "/contact", label: "Contact" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <Link href={href} className="text-gray-300 hover:text-sky-400 transition-colors duration-300 flex items-center group">
+                      <span className="w-0 h-0.5 bg-sky-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Services */}
             <div>
               <h4 className="text-xl font-bold mb-6 text-sky-300">Our Services</h4>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-sky-400 mr-2">•</span>
-                  Corporate Uniforms
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sky-400 mr-2">•</span>
-                  T-Shirts
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sky-400 mr-2">•</span>
-                  Boiler Suits
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sky-400 mr-2">•</span>
-                  Suits & Blazers
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sky-400 mr-2">•</span>
-                  Safety Uniforms
-                </li>
+              <ul className="space-y-3">
+                {[
+                  { href: "/services/corporate-uniform", label: "Corporate Uniforms" },
+                  { href: "/services/t-shirts", label: "T-Shirts" },
+                  { href: "/services/boiler-suits", label: "Boiler Suits" },
+                  { href: "/services/suits-blazers", label: "Suits & Blazers" },
+                  { href: "/services/safety-uniform", label: "Safety Uniforms" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <Link href={href} className="text-gray-300 hover:text-sky-400 transition-colors duration-300 flex items-center group">
+                      <span className="w-0 h-0.5 bg-sky-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -141,7 +124,7 @@ export default function Footer() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <a href="tel:+919876543210" className="hover:text-sky-400 transition-colors">
+                  <a href="tel:+919769574841" className="hover:text-sky-400 transition-colors">
                     +91 97695 74841
                   </a>
                 </li>
@@ -149,7 +132,7 @@ export default function Footer() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <a href="mailto:contact@uniformco.in" className="hover:text-sky-400 transition-colors break-all">
+                  <a href="mailto:enquiry@shrimaanuniforms.com" className="hover:text-sky-400 transition-colors break-all">
                     enquiry@shrimaanuniforms.com
                   </a>
                 </li>

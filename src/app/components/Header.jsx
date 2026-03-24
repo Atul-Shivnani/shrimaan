@@ -35,14 +35,14 @@ const Header = () => {
             </Link>
             
             {/* Mobile Company Name (Stacked) */}
-            <div className="block sm:hidden flex flex-col justify-center">
+            <Link href="/" className="block sm:hidden flex flex-col justify-center">
               <span className="text-blue-900 font-black text-[17px] leading-none tracking-wide font-inter">
                 SHRIMAAN
               </span>
               <span className="text-blue-900 font-bold text-[15px] leading-none tracking-[0.05em] font-inter">
                 UNIFORMS
               </span>
-            </div>
+            </Link>
           </div>
 
           {/* Mobile Tagline - Below Logo and Name */}
@@ -53,14 +53,14 @@ const Header = () => {
           </div>
           
           {/* Desktop/Tablet Company Name and Tagline */}
-          <div className="hidden sm:flex sm:flex-col">
+          <Link href="/" className="hidden sm:flex sm:flex-col hover:opacity-80 transition-opacity duration-300">
             <div className="text-blue-900 font-black text-lg md:text-xl lg:text-2xl leading-tight tracking-wide font-inter">
               SHRIMAAN UNIFORMS
             </div>
             <div className="text-blue-800 font-light text-xs md:text-sm lg:text-base -mt-1 italic tracking-wide font-roboto-condensed">
               Crafting Identity, Tailoring Excellence
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* Center: Mafatlal Embed Logo */}
