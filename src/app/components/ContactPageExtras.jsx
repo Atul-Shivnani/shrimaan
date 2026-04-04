@@ -1,35 +1,6 @@
 import Link from "next/link";
 
-const businessHours = [
-  { day: "Monday – Friday", hours: "10:00 AM – 7:00 PM" },
-  { day: "Saturday", hours: "10:00 AM – 5:00 PM" },
-  { day: "Sunday", hours: "Closed" },
-];
-
-const nextSteps = [
-  {
-    step: "01",
-    title: "We Review Your Enquiry",
-    description: "Our team reviews your message within 4 business hours and assigns a dedicated account manager to your enquiry.",
-  },
-  {
-    step: "02",
-    title: "Consultation Call",
-    description: "We call you to understand your requirements in detail — fabric preference, quantity, timeline, and branding needs.",
-  },
-  {
-    step: "03",
-    title: "Samples & Quotation",
-    description: "You receive fabric swatches and a detailed, itemized quotation within 48 hours of the consultation.",
-  },
-  {
-    step: "04",
-    title: "Order Confirmation & Production",
-    description: "Once you approve, we begin production and keep you updated at every milestone until delivery.",
-  },
-];
-
-export default function ContactPageExtras() {
+export default function ContactPageExtras({ businessHours, nextSteps }) {
   return (
     <div className="w-full">
       {/* Map + Business Hours side-by-side */}

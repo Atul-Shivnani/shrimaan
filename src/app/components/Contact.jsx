@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function ContactSection() {
+export default function ContactSection({ phone = "+91 97695 74841", email = "enquiry@shrimaanuniforms.com", address = "Mafatlal Shrimaan Uniforms,\nNarmada Apartments, Raopura\nVadodara, 390001" }) {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(null); // { type: "success" | "error", text: string }
@@ -66,7 +66,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
-                  <a href="tel:+919769574841" className="text-lg text-sky-600 sm:text-sm hover:text-sky-700 font-medium transition-colors">+91 97695 74841</a>
+                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="text-lg text-sky-600 sm:text-sm hover:text-sky-700 font-medium transition-colors">{phone}</a>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
-                  <a href="mailto:enquiry@shrimaanuniforms.com" className="text-sm sm:text-base text-sky-600 hover:text-sky-700 font-medium transition-colors break-all">enquiry@shrimaanuniforms.com</a>
+                  <a href={`mailto:${email}`} className="text-sm sm:text-base text-sky-600 hover:text-sky-700 font-medium transition-colors break-all">{email}</a>
                 </div>
               </div>
             </div>
@@ -95,11 +95,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Office Address</h3>
-                  <p className="text-lg text-slate-900 leading-relaxed sm:text-sm">
-                    Mafatlal Shrimaan Uniforms,<br />
-                    Narmada Apartments, Raopura<br />
-                    Vadodara, 390001
-                  </p>
+                  <p className="text-lg text-slate-900 leading-relaxed sm:text-sm whitespace-pre-line">{address}</p>
                 </div>
               </div>
             </div>

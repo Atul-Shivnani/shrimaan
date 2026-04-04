@@ -26,7 +26,12 @@ export default async function AboutPage() {
       <div className="pt-24">
         <AboutSection content={content.about} />
       </div>
-      <AboutPageExtras />
+      <AboutPageExtras
+        timeline={content.aboutPage.timeline}
+        partners={content.aboutPage.partners}
+        process={content.aboutPage.process}
+        industries={content.aboutPage.industries}
+      />
       <Footer />
     </main>
   );

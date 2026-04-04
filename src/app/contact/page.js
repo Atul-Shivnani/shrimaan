@@ -3,6 +3,7 @@ import ContactSection from "@/app/components/Contact";
 import ContactPageExtras from "@/app/components/ContactPageExtras";
 import Footer from "@/app/components/Footer";
 import { ContactIntentTracker } from "@/app/components/PixelEvents";
+import { getAllSiteContent } from "@/lib/content";
 
 export const metadata = {
   title: "Contact Us",
@@ -16,15 +17,18 @@ export const metadata = {
   ],
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const content = await getAllSiteContent();
+  const cp = content.contactPage;
+
   return (
     <main className="w-full overflow-x-hidden">
       <ContactIntentTracker />
       <Header />
       <div className="pt-24">
-        <ContactSection />
+        <ContactSection phone={cp.phone} email={cp.email} address={cp.address} />
       </div>
-      <ContactPageExtras />
+      <ContactPageExtras businessHours={cp.businessHours} nextSteps={cp.nextSteps} />
       <Footer />
     </main>
   );

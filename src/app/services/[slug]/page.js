@@ -3,9 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { getServiceBySlug } from "@/lib/content";
+import { getServiceBySlug, getAllSiteContent } from "@/lib/content";
 import { services } from "@/lib/services";
-import { serviceDetails } from "@/lib/serviceDetails";
+import { serviceDetails as staticServiceDetails } from "@/lib/serviceDetails";
 import ServiceDetailExtras from "@/app/components/ServiceDetailExtras";
 import { ServicePixelEvent } from "@/app/components/PixelEvents";
 import { getSiteUrl, siteConfig } from "@/lib/site";
@@ -33,8 +33,9 @@ export async function generateMetadata({ params }) {
 
 export default async function ServiceDetailPage({ params }) {
   const { slug } = await params;
-  const service = await getServiceBySlug(slug);
+  const [service, siteContent] = await Promise.all([getServiceBySlug(slug), getAllSiteContent()]);
   if (!service) notFound();
+  const serviceDetails = siteContent.serviceDetails ?? staticServiceDetails;
 
   const siteUrl = getSiteUrl();
   const breadcrumb = {
