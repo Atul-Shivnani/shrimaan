@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3003/og-image)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3003/icon.png)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3003/apple-icon.png)",
+      "Bash(curl -s http://localhost:3003/og-image)",
+      "Bash(python3 -c \"import sys,re; text=sys.stdin.read\\(\\); matches=re.findall\\(r'This page could not be found|module not found|Cannot find|SyntaxError|Error: [^<]{0,100}', text\\); print\\('\\\\n'.join\\(matches[:5]\\)\\)\")",
+      "Bash(touch \"C:/Users/AtulShivnani/desktop/srimaan/src/app/og-image/route.js\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\" http://localhost:3003/og-image)",
+      "Bash(curl -s http://localhost:3003/)",
+      "Bash(curl -s http://localhost:3003/_next/static/chunks/apps_website_src_app_layout_1cf6b850.js)",
+      "Bash(curl -s \"http://localhost:3003/about\")",
+      "Bash(curl -s -L \"http://localhost:3003/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3004/og-image)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3004/icon.png)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3004/apple-icon.png)",
+      "Bash(curl -s \"http://localhost:3004/og-image\" -o \"/tmp/og-preview.png\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"http://localhost:3004/og-image\" -o \"C:/Users/AtulShivnani/desktop/og-preview.png\")"
+    ]
+  }
+}
