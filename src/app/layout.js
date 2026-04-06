@@ -6,7 +6,7 @@ import JsonLd from "./components/JsonLd";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 
 const siteUrl = getSiteUrl();
-const ogImage = `${siteUrl}/Only%20logo-%20without%20bg.png`;
+const ogImage = `${siteUrl}/og-image`;
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -29,7 +29,9 @@ export const metadata = {
   ],
   authors: [{ name: siteConfig.name }],
   icons: {
-    icon: "/Only logo- without bg.png",
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+    shortcut: "/icon.png",
   },
   openGraph: {
     type: "website",

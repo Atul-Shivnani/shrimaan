@@ -15,6 +15,7 @@ export const metadata = {
     "bulk uniform quote India",
     "corporate uniform inquiry Vadodara",
   ],
+  alternates: { canonical: "/contact" },
 };
 
 export default async function ContactPage() {

@@ -15,6 +15,7 @@ export const metadata = {
     "Raymond uniform distributor Vadodara",
     "corporate uniform company Gujarat",
   ],
+  alternates: { canonical: "/about" },
 };
 
 export default async function AboutPage() {

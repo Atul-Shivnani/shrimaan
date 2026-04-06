@@ -28,6 +28,7 @@ export async function generateMetadata({ params }) {
       "bulk uniform order Gujarat",
       "Mafatlal fabric uniform",
     ],
+    alternates: { canonical: `/services/${slug}` },
   };
 }
 

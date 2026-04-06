@@ -17,6 +17,7 @@ export const metadata = {
     "T-shirt printing Gujarat",
     "suits blazers uniform manufacturer",
   ],
+  alternates: { canonical: "/services" },
 };
 
 export default async function ServicesPage() {
