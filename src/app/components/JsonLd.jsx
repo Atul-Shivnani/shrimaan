@@ -3,7 +3,7 @@ import { getSiteUrl, siteConfig } from "@/lib/site";
 
 export default function JsonLd() {
   const siteUrl = getSiteUrl();
-  const logoUrl = `${siteUrl}/Only%20logo-%20without%20bg.png`;
+  const logoUrl = `${siteUrl}/icon.png`;
 
   const payload = {
     "@context": "https://schema.org",
@@ -75,16 +75,14 @@ export default function JsonLd() {
         "@type": "Product",
         name: service.name,
         description: service.shortDescription,
+        url: `${siteUrl}/services/${service.slug}`,
         image: `${siteUrl}${service.mainImage}`,
         brand: {
           "@type": "Brand",
           name: siteConfig.name,
         },
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          priceCurrency: "INR",
-          seller: { "@id": `${siteUrl}/#organization` },
+        manufacturer: {
+          "@id": `${siteUrl}/#organization`,
         },
       })),
     ],
