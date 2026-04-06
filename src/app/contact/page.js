@@ -14,6 +14,11 @@ export const metadata = {
     "uniform supplier contact Gujarat",
     "bulk uniform quote India",
     "corporate uniform inquiry Vadodara",
+    "uniform order inquiry Gujarat",
+    "workwear quote Vadodara",
+    "custom uniform enquiry India",
+    "uniform manufacturer contact Vadodara",
+    "bulk workwear supplier contact Gujarat",
   ],
   alternates: { canonical: "/contact" },
 };
