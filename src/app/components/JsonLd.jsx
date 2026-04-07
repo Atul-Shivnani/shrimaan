@@ -72,7 +72,7 @@ export default function JsonLd() {
         )}`,
       },
       ...services.map((service) => ({
-        "@type": "Product",
+        "@type": "Service",
         name: service.name,
         description: service.shortDescription,
         url: `${siteUrl}/services/${service.slug}`,
@@ -81,7 +81,7 @@ export default function JsonLd() {
           "@type": "Brand",
           name: siteConfig.name,
         },
-        manufacturer: {
+        provider: {
           "@id": `${siteUrl}/#organization`,
         },
       })),
