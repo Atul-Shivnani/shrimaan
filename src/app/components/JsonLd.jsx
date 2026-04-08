@@ -1,4 +1,3 @@
-import { services } from "@/lib/services";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 
 export default function JsonLd() {
@@ -71,20 +70,6 @@ export default function JsonLd() {
           `${siteConfig.name}, ${siteConfig.address.streetAddress}, ${siteConfig.address.addressLocality}`
         )}`,
       },
-      ...services.map((service) => ({
-        "@type": "Service",
-        name: service.name,
-        description: service.shortDescription,
-        url: `${siteUrl}/services/${service.slug}`,
-        image: `${siteUrl}${service.mainImage}`,
-        brand: {
-          "@type": "Brand",
-          name: siteConfig.name,
-        },
-        provider: {
-          "@id": `${siteUrl}/#organization`,
-        },
-      })),
     ],
   };
 

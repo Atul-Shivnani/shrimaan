@@ -54,10 +54,47 @@ export default async function ServiceDetailPage({ params }) {
       { "@type": "ListItem", position: 3, name: service.name, item: `${siteUrl}/services/${service.slug}` },
     ],
   };
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${siteUrl}/services/${service.slug}#service`,
+        url: `${siteUrl}/services/${service.slug}`,
+        name: service.name,
+        description: service.shortDescription,
+        image: [`${siteUrl}${service.mainImage}`, `${siteUrl}${service.descriptionImage}`],
+        serviceType: service.name,
+        provider: { "@id": `${siteUrl}/#organization` },
+        areaServed: [
+          { "@type": "State", name: "Gujarat" },
+          { "@type": "Country", name: "India" },
+        ],
+        audience: {
+          "@type": "BusinessAudience",
+          audienceType: "Businesses ordering uniforms in bulk",
+        },
+        mainEntityOfPage: { "@id": `${siteUrl}/services/${service.slug}#webpage` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/services/${service.slug}#webpage`,
+        url: `${siteUrl}/services/${service.slug}`,
+        name: service.name,
+        description: service.shortDescription,
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        breadcrumb: { "@id": `${siteUrl}/services/${service.slug}#breadcrumb` },
+      },
+      {
+        ...breadcrumb,
+        "@id": `${siteUrl}/services/${service.slug}#breadcrumb`,
+      },
+    ],
+  };
 
   return (
     <main className="w-full overflow-x-hidden min-h-screen bg-gradient-to-b from-white to-gray-100">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <ServicePixelEvent serviceName={service.name} serviceSlug={service.slug} />
       <Header />
       <section className="pt-28 pb-16 px-5 md:px-20 max-w-6xl mx-auto">
