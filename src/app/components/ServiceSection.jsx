@@ -26,11 +26,12 @@ export default function ServicesSection({ content }) {
           <Link
             key={service.id ?? index}
             href={`/services/${service.slug}`}
+            aria-label={`View ${service.name} service details`}
             className={`group relative flex flex-col ${
               index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-            } w-full overflow-hidden transition-all duration-500 hover:shadow-2xl`}
+            } w-full overflow-hidden border-y border-gray-100 bg-white transition-all duration-500 hover:shadow-2xl`}
           >
-            <div className="w-full relative h-[250px] lg:h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
+            <div className="w-full relative h-[250px] lg:h-[420px] bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tl from-sky-900/20 to-transparent z-10"></div>
               <Image
                 src={service.descriptionImage}
@@ -40,7 +41,7 @@ export default function ServicesSection({ content }) {
                 className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
-            <div className="w-full relative h-[250px] lg:h-[400px] overflow-hidden">
+            <div className="w-full relative h-[250px] lg:h-[420px] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-slate-900/10 to-transparent z-10 group-hover:from-slate-900/5 transition-all duration-500"></div>
               <Image
                 src={service.mainImage}
@@ -49,6 +50,18 @@ export default function ServicesSection({ content }) {
                 unoptimized
                 className="object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
               />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent px-5 py-6 lg:px-8 lg:py-8">
+              <div className="mx-auto flex max-w-7xl flex-col gap-3 lg:max-w-none">
+                <div className="max-w-2xl">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-300">Bulk Uniform Solutions</p>
+                  <h3 className="mt-2 text-2xl font-extrabold text-white lg:text-3xl">{service.name}</h3>
+                  <p className="mt-2 max-w-xl text-sm leading-6 text-slate-200 lg:text-base">{service.shortDescription}</p>
+                </div>
+                <span className="inline-flex w-fit items-center rounded-full border border-sky-300/40 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 group-hover:border-sky-200 group-hover:bg-sky-500/20">
+                  Explore {service.name}
+                </span>
+              </div>
             </div>
           </Link>
         ))}

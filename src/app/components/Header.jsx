@@ -22,46 +22,34 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-50 shadow-lg border-b border-gray-200 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 md:px-6 py-2 sm:py-2.5">
-        {/* Left: Company Logo and Tagline */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-1">
-          {/* Logo and Company Name Unit */}
-          <div className="flex items-center gap-1">
-            <Link href="/" className="flex items-center group">
-              <img
-                src="/Only logo- without bg.png"
-                alt="Company Logo - Corporate Uniform Manufacturer"
-                className="h-12 sm:h-14 md:h-16 w-auto transform group-hover:scale-105 transition-transform duration-300"
-              />
-            </Link>
-            
-            {/* Mobile Company Name (Stacked) */}
-            <Link href="/" className="block sm:hidden flex flex-col justify-center">
-              <span className="text-blue-900 font-black text-[17px] leading-none tracking-wide font-inter">
-                SHRIMAAN
-              </span>
-              <span className="text-blue-900 font-bold text-[15px] leading-none tracking-[0.05em] font-inter">
-                UNIFORMS
-              </span>
-            </Link>
-          </div>
+        {/* Left: Logo + Brand Name */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Logo */}
+          <Link href="/" className="flex items-center group flex-shrink-0">
+            <img
+              src="/Only logo- without bg.png"
+              alt="Shrimaan Uniforms Logo"
+              className="h-11 sm:h-13 md:h-15 w-auto transform group-hover:scale-105 transition-transform duration-300"
+            />
+          </Link>
 
-          {/* Mobile Tagline - Below Logo and Name */}
-          <div className="block sm:hidden">
-            <div className="text-blue-700/80 font-medium text-[10px] leading-tight italic tracking-wide font-roboto-condensed">
+          {/* Brand Name */}
+          <Link href="/" className="flex flex-col justify-center hover:opacity-80 transition-opacity duration-300 group">
+            <span className="brand-name-underline">
+              <span
+                className="brand-name text-blue-900"
+                style={{ fontSize: "clamp(14px, 2.2vw, 22px)" }}
+              >
+                SHRIMAAN UNIFORMS
+              </span>
+            </span>
+            {/* Tagline — desktop only, very subtle */}
+            <span className="brand-tagline text-blue-800/100 hidden sm:block mt-1" style={{ fontSize: "clamp(9px, 0.85vw, 11px)" }}>
               Crafting Identity, Tailoring Excellence
-            </div>
-          </div>
-          
-          {/* Desktop/Tablet Company Name and Tagline */}
-          <Link href="/" className="hidden sm:flex sm:flex-col hover:opacity-80 transition-opacity duration-300">
-            <div className="text-blue-900 font-black text-lg md:text-xl lg:text-2xl leading-tight tracking-wide font-inter">
-              SHRIMAAN UNIFORMS
-            </div>
-            <div className="text-blue-800 font-light text-xs md:text-sm lg:text-base -mt-1 italic tracking-wide font-roboto-condensed">
-              Crafting Identity, Tailoring Excellence
-            </div>
+            </span>
           </Link>
         </div>
+
 
         {/* Center: Mafatlal Embed Logo */}
         <div className="absolute left-[70%] sm:left-1/2 transform -translate-x-1/2">

@@ -1,4 +1,20 @@
 import "./globals.css";
+import { Cinzel, Raleway } from "next/font/google";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-cinzel",
+  display: "swap",
+});
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["200", "300", "400"],
+  style: ["normal", "italic"],
+  variable: "--font-raleway",
+  display: "swap",
+});
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import MetaPixel from "./components/MetaPixel";
@@ -64,7 +80,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${cinzel.variable} ${raleway.variable}`}>
       <body className="bg-sky-50">
         <JsonLd />
         <MetaPixel />

@@ -6,7 +6,7 @@ export default async function sitemap() {
   const now = new Date();
   const services = await getServices();
 
-  const staticPages = ["", "/services", "/about", "/contact"];
+  const staticPages = ["", "/services", "/about", "/contact", "/privacy-policy", "/terms-of-service"];
 
   return [
     ...staticPages.map((path, index) => ({
