@@ -67,7 +67,7 @@ const Header = () => {
 
 
         {/* Center: Mafatlal Embed Logo */}
-        <div className="absolute left-[50%] sm:left-1/2 transform -translate-x-1/2">
+        <div className="absolute left-[60%] sm:left-1/2 transform -translate-x-1/2">
           <Link href="/" className="flex items-center group">
             <img
               src="/Shrimaan new Mafatlal embed logo-Photoroom.png"
