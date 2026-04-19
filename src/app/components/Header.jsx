@@ -23,13 +23,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-50 shadow-lg border-b border-gray-200 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 md:px-6 py-2 sm:py-2.5">
         {/* Left: Logo + Brand Name */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1 sm:gap-3">
           {/* Logo */}
           <Link href="/" className="flex items-center group flex-shrink-0">
             <img
               src="/Only logo- without bg.png"
               alt="Shrimaan Uniforms Logo"
-              className="h-11 sm:h-13 md:h-15 w-auto transform group-hover:scale-105 transition-transform duration-300"
+              className="h-9 sm:h-12 md:h-14 w-auto transform group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 
