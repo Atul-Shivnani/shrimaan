@@ -35,24 +35,39 @@ const Header = () => {
 
           {/* Brand Name */}
           <Link href="/" className="flex flex-col justify-center hover:opacity-80 transition-opacity duration-300 group">
-            <span className="brand-name-underline">
-              <span
-                className="brand-name text-blue-900"
-                style={{ fontSize: "clamp(14px, 2.2vw, 22px)" }}
-              >
-                SHRIMAAN UNIFORMS
+
+            {/* ── Mobile: stacked layout — no underline, no tagline ── */}
+            <span className="flex flex-col items-start sm:hidden">
+              <span className="brand-name text-blue-900 text-[16px] mb-0.5">
+                SHRIMAAN
+              </span>
+              <span className="brand-name text-blue-900 text-[16px]">
+                UNIFORMS
               </span>
             </span>
-            {/* Tagline — desktop only, very subtle */}
-            <span className="brand-tagline text-blue-800/100 hidden sm:block mt-1" style={{ fontSize: "clamp(9px, 0.85vw, 11px)" }}>
-              Crafting Identity, Tailoring Excellence
+
+            {/* ── Desktop / tablet: single line ── */}
+            <span className="hidden sm:inline-flex flex-col">
+              <span className="brand-name-underline">
+                <span
+                  className="brand-name text-blue-900"
+                  style={{ fontSize: "clamp(15px, 2vw, 22px)" }}
+                >
+                  SHRIMAAN UNIFORMS
+                </span>
+              </span>
+              <span className="brand-tagline text-blue-800 mt-1" style={{ fontSize: "clamp(9px, 0.8vw, 11px)" }}>
+                Crafting Identity, Tailoring Excellence
+              </span>
             </span>
+
           </Link>
+
         </div>
 
 
         {/* Center: Mafatlal Embed Logo */}
-        <div className="absolute left-[70%] sm:left-1/2 transform -translate-x-1/2">
+        <div className="absolute left-[50%] sm:left-1/2 transform -translate-x-1/2">
           <Link href="/" className="flex items-center group">
             <img
               src="/Shrimaan new Mafatlal embed logo-Photoroom.png"
