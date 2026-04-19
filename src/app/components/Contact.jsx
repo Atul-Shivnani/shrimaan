@@ -95,7 +95,14 @@ export default function ContactSection({ phone = "+91 97695 74841", email = "enq
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Office Address</h3>
-                  <p className="text-lg text-slate-900 leading-relaxed sm:text-sm whitespace-pre-line">{address}</p>
+                  <a 
+                    href="https://maps.app.goo.gl/Z5MQ8vSpWVhTfA7U9?g_st=iwb" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-lg text-slate-900 leading-relaxed sm:text-sm whitespace-pre-line hover:text-sky-600 transition-colors block"
+                  >
+                    {address}
+                  </a>
                 </div>
               </div>
             </div>
