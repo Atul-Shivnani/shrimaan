@@ -10,7 +10,7 @@ export default function ServicesSection({ content }) {
   };
 
   return (
-    <section id="services" className="relative w-full py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section id="services" className="relative w-full py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-sky-300/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
@@ -63,7 +63,6 @@ export default function ServicesSection({ content }) {
             <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent px-5 py-6 lg:hidden">
               <div className="mx-auto flex w-full flex-col gap-3">
                 <div>
-                  <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-sky-400">Bulk Uniform Solutions</p>
                   <h3 className="mt-1 text-2xl font-extrabold text-white">{service.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-300 line-clamp-2">{service.shortDescription}</p>
                 </div>
