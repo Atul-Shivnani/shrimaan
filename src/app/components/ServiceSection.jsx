@@ -10,8 +10,12 @@ export default function ServicesSection({ content }) {
   };
 
   return (
-    <section id="services" className="w-full py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="services" className="relative w-full py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-sky-300/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-slate-700 to-slate-900 mb-6">
             {title}

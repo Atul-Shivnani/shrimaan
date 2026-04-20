@@ -74,9 +74,7 @@ export default async function ServicesPage() {
     <main className="w-full overflow-x-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceCatalogSchema) }} />
       <Header />
-      <div className="pt-24">
-        <ServicesSection content={content.services} />
-      </div>
+      <ServicesSection content={content.services} />
       <ServicesPageExtras />
       <Footer />
     </main>

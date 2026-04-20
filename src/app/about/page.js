@@ -33,9 +33,7 @@ export default async function AboutPage() {
   return (
     <main className="w-full overflow-x-hidden">
       <Header />
-      <div className="pt-24">
-        <AboutSection content={content.about} />
-      </div>
+      <AboutSection content={content.about} />
       <AboutPageExtras
         timeline={content.aboutPage.timeline}
         partners={content.aboutPage.partners}

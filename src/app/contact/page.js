@@ -1,4 +1,4 @@
-﻿import Header from "@/app/components/Header";
+import Header from "@/app/components/Header";
 import ContactSection from "@/app/components/Contact";
 import ContactPageExtras from "@/app/components/ContactPageExtras";
 import Footer from "@/app/components/Footer";
@@ -31,9 +31,7 @@ export default async function ContactPage() {
     <main className="w-full overflow-x-hidden">
       <ContactIntentTracker />
       <Header />
-      <div className="pt-24">
-        <ContactSection phone={cp.phone} email={cp.email} address={cp.address} />
-      </div>
+      <ContactSection phone={cp.phone} email={cp.email} address={cp.address} />
       <ContactPageExtras businessHours={cp.businessHours} nextSteps={cp.nextSteps} />
       <Footer />
     </main>

@@ -97,19 +97,13 @@ export default async function ServiceDetailPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <ServicePixelEvent serviceName={service.name} serviceSlug={service.slug} />
       <Header />
-      <section className="pt-28 pb-16 px-5 md:px-20 max-w-6xl mx-auto">
+      <section className="pt-22 lg:pt-26 pb-16 px-5 md:px-20 max-w-6xl mx-auto">
         <Link href="/services" className="text-sky-600 font-semibold hover:underline">
           Back to Services
         </Link>
-        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 mb-6">{service.name}</h1>
-        <p className="text-lg text-gray-700 mb-8">{service.shortDescription}</p>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="relative h-80 bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="w-full mt-8">
+          <div className="relative h-80 sm:h-96 md:h-[500px] w-full bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden">
             <Image src={service.mainImage} alt={service.name} fill unoptimized className="object-contain" />
-          </div>
-          <div className="relative h-80 bg-white rounded-2xl shadow-lg overflow-hidden">
-            <Image src={service.descriptionImage} alt={`${service.name} detail`} fill unoptimized className="object-contain" />
           </div>
         </div>
       </section>
